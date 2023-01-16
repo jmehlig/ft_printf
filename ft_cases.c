@@ -12,12 +12,15 @@
 
 #include "ft_printf.h"
 
+//handles %c - prints one character
 int	print_char(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
+//handles %s - prints a string
+// if the given string is NULL, it prints (null) and returns 6
 int	print_string(va_list arglist)
 {
 	char	*temp;
@@ -35,6 +38,7 @@ int	print_string(va_list arglist)
 	}
 }
 
+// handles %d and %i - prints the number given and counts its digits and optional signs
 int	print_deci(int i)
 {
 	int	size;
@@ -58,6 +62,7 @@ int	print_deci(int i)
 	return (size + sign_space);
 }
 
+//handles %x and %X - converts and prints the given int into a hex(in string format)
 int	print_hexa(int i, char c)
 {
 	char	*i_hex;
@@ -80,6 +85,7 @@ int	print_hexa(int i, char c)
 	return (length);
 }
 
+// handles %u - prints an unsigned int and counts its digits
 int	print_unsigned(unsigned int i)
 {
 	int	size;
