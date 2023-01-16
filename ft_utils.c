@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+//handles %p - converts the input number into a hex and prints it with '0x' as prefix
 int	print_ptr(void *ptr)
 {
 	unsigned long long	ptr_nbr;
@@ -35,6 +36,8 @@ int	print_ptr(void *ptr)
 	return (length);
 }
 
+//if k is a digit, return it
+//else, beginning form 10 return the corresponding letter: 10 - a, 11 - b, ...
 char	ft_write(int k)
 {
 	char	c;
@@ -46,6 +49,7 @@ char	ft_write(int k)
 	return (c);
 }
 
+//help function for to_base
 char	*base_str(unsigned long long i, int base, long long	power, int j)
 {
 	int			k;
@@ -75,6 +79,7 @@ char	*base_str(unsigned long long i, int base, long long	power, int j)
 	return (i_str);
 }
 
+//handles the input i (pointer) and converts it into a hex
 char	*tobase(unsigned long long i, int base)
 {
 	unsigned long long	frac;
