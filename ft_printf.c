@@ -12,6 +12,8 @@
 
 #include "ft_printf.h"
 
+//looking which conversion is asked for and actually redirecting it to the function handeling the needed case
+//returns the characters printed while doing the conversion
 int	print_cases(char c, va_list arglist)
 {
 	int		char_printed;
@@ -37,6 +39,9 @@ int	print_cases(char c, va_list arglist)
 	return (char_printed);
 }
 
+//counts the amount of characters printed
+//redirects if the charcter '%' is found in the input string
+//other characters get printed directly
 int	get_printed(char *temp, va_list arglist)
 {
 	int	i;
@@ -65,6 +70,8 @@ int	get_printed(char *temp, va_list arglist)
 	return (char_printed);
 }
 
+// mimics the printf function, returns the amount of characters printed
+//variadic function ,therefore uses va_list for reading the optional input
 int	ft_printf(const char *input, ...)
 {
 	va_list	arglist;
