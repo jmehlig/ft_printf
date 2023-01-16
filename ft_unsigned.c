@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+//used for creating a hex string out of a given int
 char	*int_base_str(unsigned int i, unsigned int base, long	power, int j)
 {
 	int		k;
@@ -41,6 +42,8 @@ char	*int_base_str(unsigned int i, unsigned int base, long	power, int j)
 	return (i_str);
 }
 
+//takes an unsigned int and a base and converts it into the corresponding system, returns it as a string
+//used to convert int to hex
 char	*int_tobase(unsigned int i, unsigned int base)
 {
 	unsigned int	frac;
@@ -59,6 +62,7 @@ char	*int_tobase(unsigned int i, unsigned int base)
 	return (int_base_str(i, base, power, j));
 }
 
+//handles %u - actually prints the unsigned int
 void	ft_putunsigned_fd(unsigned int n)
 {
 	if (n == 4294967295)
